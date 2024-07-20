@@ -6,19 +6,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="a simple html page to brush up on">
     <title>my practice page</title>
-    <link rel="stylesheet" href="style.css">
-    <style>img {
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400" />
+
+<style>
+  * {
+    font-family: 'edu au vic wa nt hand';
+    font-weight: 400;
+  }
+
+  @supports (font-variation-settings: "wght" 450) {
+    * {
+      font-family: 'edu au vic wa nt hand';
+      font-weight: 450;
+    }
+  }
+</style>
+       
+
+        
+    <style>
+body { font-family: edu au vic wa nt hand; background-color: rgb(55, 55, 55); text-shadow: rgb(8, 8, 8) 10px;} 
+h2, p, button { background-color: rgb(52, 32, 82); 
+border-radius: 6px;}
+    img {
         border-top-left-radius: 5rem 50%;
         border-top-right-radius: 2rem 50%;
         border-bottom-right-radius: 5rem 50%;
         border-bottom-left-radius: 2rem 50%;
         border-color: rgb(150, 0, 85);
-        border
+        box-shadow: rgb(0, 0, 0) 10px 10px 10px;
     }</style>
 </head>
 <body>
     <h1>Welcome to my html brush up page!</h1>
     <p>this is a paragraph with a <a href="https://www.example.com"> link to example.com</a></p>
+    <img src="https://media.licdn.com/dms/image/C4E12AQHOpSFrUAiuIg/article-cover_image-shrink_600_2000/0/1520184417034?e=2147483647&v=beta&t=d8rzY9Fn6-CfiuFi11tAvEy3T_vEOtSnCpdBLIIsTQc" alt="example image a image of sunflowers with a bright light blue sky behind the row of sunflowers ">
     <img src="https://www.wikiwrimo.org/w/images/Example.jpg" alt="example image a image of sunflowers with a bright light blue sky behind the row of sunflowers ">
 </body>
 </html>
