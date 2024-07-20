@@ -1,6 +1,6 @@
 function togglecoverimg() {
     // get the clock
-    var myClock = document.getElementById('div');
+    var myClock = document.getElementById('hidder');
 
     // get the current value of the clock's display property
     var displaySetting = myClock.style.display;
