@@ -11,9 +11,34 @@
   }
 
 
+img.icon{
+ width: 20px;
+ background-image:none ;
+    padding: 2px;
+    border-radius: 0px;
+    box-shadow: none;
+
+}
+
+  body{
+    padding-top: 30px;
+  }
+a{
+  text-decoration: none;
+  color:rgb(16, 170, 226);
+}
+  a:hover{
+  text-decoration: wavy;
+}
+  a:visited{
+  color: rgb(0, 109, 172);
+}
+  header li a:visited{
+    color:rgb(255, 255, 255);
+  }
 header { 
      
-background-color: rgba(0, 0, 0, 0.544);  
+background-color: rgba(255, 255, 255, 0.544);  
 position: fixed;  
 left: 0;  
 right: 0;  
@@ -30,7 +55,7 @@ header li {
 margin: 20px;  
 }  
 header li a {  
-color: rgb(118, 118, 128);  
+color: rgb(255, 255, 255);  
 text-decoration: none;
 background-color: rgb(21, 21, 21);
 padding-left: 10px;
@@ -39,9 +64,8 @@ border-radius: 7px;
 margin: -10px;
 }  
 header li a:hover {  
-
-background-color: rgb(246, 237, 237);
-
+  text-decoration: none;
+background-color: rgb(63, 63, 63);
 }  
 
 div div{
@@ -49,7 +73,9 @@ div div{
   border-radius: 5px;
 
 }
-  
+  body{
+    color: aliceblue;
+  }
 button {
     background-color: #333;
     color: #fff;
@@ -97,8 +123,8 @@ button {
     text-shadow: rgb(8, 8, 8) 10px;
   }
 
-  h2,
-  p,
+  h2
+  p
   button {
     background-color: rgb(27, 27, 27);
     color: rgb(255, 255, 255);
