@@ -15,7 +15,10 @@
     transition: transform 0.3s ease-in-out;
 
   }
-img:hover{
+div{
+  margin: 10px;
+}
+  img:hover{
   transform: scale(1.05);
 }
 img.icon:hover{
