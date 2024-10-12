@@ -4,7 +4,7 @@
   <head>
     <script src="MainJS.js"></script>
 
-    <link rel="stylesheet" href="style.css"
+    <link rel="stylesheet" href="style.css"/>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="a simple html page to brush up on" />
@@ -21,6 +21,25 @@
     />
   </head>
   <body>
+    
+    
+    <div id="google_translate_element"></div>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+
+    <script type="text/javascript" 
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
     <header>
     <nav>  
       <ul>  
@@ -59,5 +78,6 @@
        class="icon" src="https://icons.veryicon.com/png/o/weather/color-weather/rainbow-7.png"/></p>
        
       </Div>
+      <script src="MainJS.js"></script>
   </body>
 </html>

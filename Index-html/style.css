@@ -27,6 +27,93 @@ padding: 5px;
 border-radius: 5px;
 margin: 0px;
 }
+select{
+  font-family: "edu au vic wa nt hand"!important;
+  padding: 2px;
+    font-weight: 500;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 0px;
+}
+
+nav {
+  margin: 20px;
+}
+div#google_translate_element *{
+  background-color: #ffffff00;
+  backdrop-filter: blur(0px);
+  background-image: none;
+  padding: 0px;
+  box-shadow: none;
+
+}
+
+div#google_translate_element {
+background-color: #ffffff00;
+  background-image: none;
+  padding: 0px;
+  border-radius: 5px;
+  box-shadow:none;
+  position: fixed;
+  z-index: 2000;
+  bottom: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  left: 0px;
+width: 200px;
+}
+
+div#google_translate_element select{
+
+  visibility: visible;
+  background-color: #ffffff45;
+  color: black;
+  backdrop-filter: blur(5px);
+  width: 100%;
+  border-radius: 5px;
+  box-shadow:0px 2px 10px rgba(0, 0, 0, 0.373);
+}
+div#google_translate_element
+img{
+  width:50px;
+  box-shadow: none!important;
+
+}
+
+/* The tooltip will be dynamically created via JavaScript */
+nav {
+  margin: 20px;
+}
+
+a {
+  margin-right: 20px;
+  text-decoration: none;
+  color: blue;
+  position: relative; /* For tooltip placement */
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: absolute;
+  display: none; /* Initially hidden */
+  background-color: #fff;
+  
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.373);
+  padding: 10px;
+  z-index: 1000;
+  width: 0; /* Start at 0 for growing effect */
+  max-height: 300px; /* Max height for scrolling */
+  overflow: hidden; /* Hide overflow initially */
+  transition: width 0.3s ease, height 0.3s ease; /* Smooth growing effect */
+}
+
+.tooltip-iframe {
+  width: 100%; /* Full width of the tooltip */
+  height: 150px; /* Smaller height for the iframe */
+  margin-top: 5px;
+  border: 0px;
+  border-radius: 5px;
+}
 
 div.fullscreen {
     width: 500px;
