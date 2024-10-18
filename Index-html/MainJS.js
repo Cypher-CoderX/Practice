@@ -29,29 +29,8 @@ document.querySelectorAll('a').forEach(link => {
 
         // Position the tooltip near the hovered link
         const rect = link.getBoundingClientRect();
-        let tooltipLeft = rect.left + window.scrollX; // Calculate left position
-        let tooltipTop = rect.bottom + window.scrollY + 5; // Position below the link
-
-        // Set the initial position of the tooltip
-        tooltip.style.left = `${tooltipLeft}px`;
-        tooltip.style.top = `${tooltipTop}px`;
-
-        // Get tooltip dimensions after it's been added to the DOM
-        const tooltipWidth = tooltip.offsetWidth; // Get actual width of the tooltip
-        const windowWidth = window.innerWidth; // Get window width
-
-        // Adjust the position if the tooltip is touching the edge of the screen
-        if (tooltipLeft + tooltipWidth > windowWidth) {
-            tooltipLeft = windowWidth - tooltipWidth - 10; // Move left if touching the right edge
-        }
-        
-        // Check if the tooltip goes beyond the left edge
-        if (tooltipLeft < 0) {
-            tooltipLeft = 10; // Move it right to ensure it is within the view
-        }
-
-        // Update the tooltip position
-        tooltip.style.left = `${tooltipLeft}px`;
+        tooltip.style.left = `${rect.left + window.scrollX}px`;
+        tooltip.style.top = `${rect.bottom + window.scrollY + 5}px`; // Position below the link
 
         // Show tooltip with growing effect
         setTimeout(() => {
@@ -70,3 +49,85 @@ document.querySelectorAll('a').forEach(link => {
         }
     });
 });
+
+
+// Track whether we should show the custom menu or the default browser menu
+let showCustomMenu = true;
+
+// Add event listener for right-click to show custom menu
+document.addEventListener('contextmenu', function(event) {
+    // Prevent default right-click behavior if showing custom menu
+    if (showCustomMenu) {
+        event.preventDefault();
+
+        // If custom menu exists, remove it
+        const existingMenu = document.getElementById('customMenu');
+        if (existingMenu) {
+            existingMenu.remove();
+        }
+
+        // Create a new custom context menu
+        const customMenu = document.createElement('div');
+        customMenu.id = 'customMenu';
+
+        // Menu items (custom actions)
+        const menuContent = `
+            <ul>
+                <li onclick="alert('Custom Action 1')">Custom Action 1</li>
+                <li onclick="alert('Custom Action 2')">Custom Action 2</li>
+                <li onclick="alert('Custom Action 3')">Custom Action 3</li>
+                <li onclick="showDefaultMenu(event)">Show Default Right-Click Menu</li>
+            </ul>
+        `;
+        customMenu.innerHTML = menuContent;
+
+        // Position the custom menu at the mouse click location
+        customMenu.style.top = `${event.clientY}px`;
+        customMenu.style.left = `${event.clientX}px`;
+        customMenu.style.display = 'block';
+        customMenu.style.position = 'absolute';
+        customMenu.style.background = '#fff';
+        customMenu.style.border = '1px solid #ccc';
+        customMenu.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
+        customMenu.style.zIndex = '1000';
+
+        // Append the custom menu to the document body
+        document.body.appendChild(customMenu);
+
+        // Hide the custom menu when clicking elsewhere
+        document.addEventListener('click', function() {
+            if (customMenu) {
+                customMenu.remove();
+            }
+        });
+    }
+});
+
+// Function to show the default right-click menu on demand
+function showDefaultMenu(event) {
+    // Remove the custom menu
+    const customMenu = document.getElementById('customMenu');
+    if (customMenu) {
+        customMenu.remove();
+    }
+
+    // Temporarily disable the custom menu
+    showCustomMenu = false;
+
+    // Create and dispatch a new contextmenu event to simulate a right-click
+    const contextMenuEvent = new MouseEvent('contextmenu', {
+        bubbles: true,
+        cancelable: true,
+        view: window,
+        clientX: event.clientX, // Use the same X position
+        clientY: event.clientY  // Use the same Y position
+    });
+
+    // Dispatch the contextmenu event to simulate the right-click
+    event.target.dispatchEvent(contextMenuEvent);
+
+    // Re-enable the custom menu after the default menu is shown
+    document.addEventListener('contextmenu', function() {
+        showCustomMenu = true; // Switch back to the custom menu after this
+    }, { once: true });
+}
