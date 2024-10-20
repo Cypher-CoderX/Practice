@@ -1,4 +1,38 @@
 // script.js
+function navbarshow(){
+    const allPages = [
+        { href: 'Index.html', text: 'Home' },
+        { href: 'about.html', text: 'About' },
+        { href: 'games.html', text: 'Games' },
+        { href: '90s.html', text: "90's Style Site" },
+        { href: 'Playdraw.html', text: 'Draw!' } // Add more pages here
+    ];
+
+    // Function to create and insert the header
+    function addHeader() {
+        const header = document.createElement('header');
+        const nav = document.createElement('nav');
+        const ul = document.createElement('ul');
+
+        // Create the list items for all pages
+        allPages.forEach(item => {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.href;
+            a.textContent = item.text;
+            li.appendChild(a);
+            ul.appendChild(li);
+        });
+
+        nav.appendChild(ul);
+        header.appendChild(nav);
+        document.body.insertBefore(header, document.body.firstChild);
+    }
+
+    // Execute the function to add the header
+    addHeader();
+};
+navbarshow();
 
 function alttooltooltip(){
      // Dynamically create the AltToolTip div
